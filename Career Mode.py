@@ -209,6 +209,7 @@ while True:
         tot=tot+1
         count=1
         big=0
+        offers=[]
         good=["Chelsea","Liverpool","Manchester United","Manchester City","Arsenal","Tottenham Hotspur","Aston Villa","Newcastle United","Brighton & Hove Albion"]
         if your_team.title() in good:
             good.remove(your_team)
@@ -221,6 +222,7 @@ while True:
                 opt= good[opn]
                 good.remove(opt)
                 print(f"{count}. {opt}")
+                offers.append(opt)
                 count=count+1
         else:
             if old in options:
@@ -234,6 +236,7 @@ while True:
                 opt= options[opn]
                 options.remove(opt)
                 print(f"{count}. {opt}")
+                offers.append(opt)
                 count=count+1
         if loan==1 and age<=31:
             m=tot+1
@@ -293,18 +296,21 @@ while True:
                     career.append(your_team)
                     print(" ")
                     print(f"You are now back at {your_team}")
+                    print(" ")
                     break
                 elif your_team.lower()=="sign" and loan==1:
                     your_team=dfd
                     career.append(your_team)
                     print(" ")
                     print(f"You are signing with {your_team}")
+                    print(" ")
                     break
-                elif your_team.title() in teams:
+                elif your_team.title() in offers:
                     your_team=your_team.title()
                     career.append(your_team)
                     print(" ")
                     print(f"You now play for {your_team}")
+                    print(" ")
                     break
                 elif your_team.lower()=="retire":
                     print("You have retired.")
@@ -346,18 +352,21 @@ while True:
              if loan==1 and your_team==old:
                 print(" ")
                 print(f"You are now back at {your_team}")
+                print(" ")
                 career.append(your_team)
              elif loan==1 and your_team==dfd:
                 print("")
                 print(f"You are signing with {your_team}")
+                print(" ")
                 career.append(your_team)
              elif loan==1:
                 print(" ")
                 print(f"You now play for {your_team}")
+                print(" ")
                 career.append(your_team)
              print(" ")
     elif season>1:
-            if your_team in teams:
+            if your_team in offers:
                 your_team=your_team
                 career.append(your_team)
 
@@ -387,7 +396,7 @@ while True:
                         print(f"{assists} Assists")
                         time.sleep(1000)
                         break
-                    if your_team in teams:
+                    if your_team in offers:
                         
                         print(" ")
                         print(f"You now play for {your_team}")
@@ -590,6 +599,7 @@ while True:
                 tot=random.randint(1,2)
                 tot=tot+1
                 count2=1
+                offers=[]
                 while count2<=tot:
                     da=19-count2-5
                     if da<=len(options):
@@ -607,6 +617,7 @@ while True:
                     else:
 
                         print(f"{count2}. {opt}")
+                        offers.append(opt)
                         
                     count2=count2+1
                     continue
@@ -627,7 +638,7 @@ while True:
                             print(" ")
                             print(f"You are on loan at {your_team}")
                             break
-                        elif your_team.title() in teams:
+                        elif your_team.title() in offers:
                             your_team=your_team.title()
                             career.append(your_team)
                             print(" ")
