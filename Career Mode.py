@@ -306,6 +306,20 @@ while True:
                     print(" ")
                     print(f"You now play for {your_team}")
                     break
+                elif your_team.lower()=="retire":
+                    print("You have retired.")
+                    print(" ")
+                    print("Career Overview:")
+                    print("\n".join(career))
+                    print(" ")
+                    print("Career Trophies:")
+                    print("\n".join(trophies))
+                    print(" ")
+                    print("Career Stats:")
+                    print(f"{sum(totgoal)} Goals")
+                    print(f"{sum(totassists)} Assists")
+                    time.sleep(1000)
+                    break
                 else:
                     print(" ")
                     print("Please choose one of the options")
