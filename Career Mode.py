@@ -264,7 +264,6 @@ while True:
         if age>31 and loan==0:
             n=tot+1
             print(f"{n}. Retire")
-            offers.append('Retire')
            
         if age>31 and loan==1:
             m=tot+1
@@ -287,7 +286,6 @@ while True:
             else:
                 a=1
                 print(f"{m}. Retire")
-                offers.append('Retire')
             dfd=your_team
         if age>31:
             print("Do you want to move to any of these teams or retire (Y/N)?")
