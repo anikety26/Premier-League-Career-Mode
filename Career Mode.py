@@ -247,11 +247,15 @@ while True:
             if goals>18:
                 print(f"{m}. Sign with {your_team}")
                 print(f"{n}. Go back to {old}")
+                offers.append(old)
+                offers.append(your_team)
             elif a>=8 and b>=8 or goals<12:
                 print(f"{m}. Go back to {old}")
+                offers.append(old)
   
             elif 12<goals<18 or a>=7:
                 print(f"{m}. Sign with {your_team}")
+                offers.append(your_team)
 
             else:
                 a=1
@@ -260,6 +264,7 @@ while True:
         if age>31 and loan==0:
             n=tot+1
             print(f"{n}. Retire")
+            offers.append('Retire')
            
         if age>31 and loan==1:
             m=tot+1
@@ -270,14 +275,19 @@ while True:
             if goals>18:
                 print(f"{m}. Sign with {your_team}")
                 print(f"{n}. Go back to {old}")
+                offers.append(old)
+                offers.append(your_team)
             elif a>=8 and b>=8 or goals<12:
                 print(f"{m}. Go back to {old}")
+                offers.append(old)
   
             elif 12<goals<18 or a>=7:
                 print(f"{m}. Sign with {your_team}")
+                offers.append(your_team)
             else:
                 a=1
                 print(f"{m}. Retire")
+                offers.append('Retire')
             dfd=your_team
         if age>31:
             print("Do you want to move to any of these teams or retire (Y/N)?")
