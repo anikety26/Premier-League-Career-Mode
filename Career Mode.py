@@ -288,12 +288,12 @@ while True:
                 print(f"{m}. Retire")
             dfd=your_team
         if age>31:
-            print("Do you want to move to any of these teams or retire (Y/N)?")
+            print("Do you want to move to any of these teams or retire? (Y/N)")
             y=input()
         elif loan==1:
             print(" ")
         else:
-            print("Do you want to move to any of these teams (Y/N)?")
+            print("Do you want to move to any of these teams? (Y/N)")
             y=input()
         if y.upper()=='Y' or y.upper()=='YES':
             while True:
