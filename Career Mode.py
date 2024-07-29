@@ -344,6 +344,46 @@ while True:
         
         else:
              print(" ")
+             if your_team in relteams:
+                print(f"{your_team} got relegated so you need to transfer")
+                print(" ")
+                while True:
+                    print("Which team do you want to move to?")
+                    your_team=input()
+                    your_team=your_team.title()
+                    if your_team.lower()=="retire":
+                        print("You have retired.")
+                        print(" ")
+                        print("Career Overview:")
+                        print("\n".join(career))
+                        print(" ")
+                        print("Career Trophies:")
+                        print("\n".join(trophies))
+                        print(" ")
+                        goals=0
+                        assists=0
+                        for goal in totgoal:
+                            goals=goals+goal
+                        for assist in totassists:
+                            assists=assists+assist
+                        print("Career Stats:")
+                        print(f"{goals} Goals")
+                        print(f"{assists} Assists")
+                        time.sleep(1000)
+                        break
+                    if your_team in offers:
+                        
+                        print(" ")
+                        print(f"You now play for {your_team}")
+                        print(" ")
+                        career.append(your_team)
+                        break
+                    else:
+                        print(" ")
+                        print("Please choose one of the options")
+                        print(" ")
+                        continue
+        
              if your_team.lower()=="retire":
                     print("You have retired.")
                     print(" ")
@@ -782,8 +822,6 @@ while True:
             
               ypoints=numwin*3+numtie
              
-                  
-            
 
               records[your_team]=(numwin,numtie,numloss, ypoints)
              
