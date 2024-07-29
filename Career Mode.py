@@ -377,6 +377,8 @@ while True:
                 career.append(your_team)
              print(" ")
     elif season>1:
+            if 'Retire' in offers:
+                offers.remove('Retire')
             if your_team in offers:
                 your_team=your_team
                 career.append(your_team)
