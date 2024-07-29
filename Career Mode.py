@@ -147,6 +147,7 @@ def nationalchoose():
         your_national=your_national.title()
 
         if your_national in nationalstart:
+            print(" ")
             print(f"You have chosen {your_national}")
             print(" ")
             break
