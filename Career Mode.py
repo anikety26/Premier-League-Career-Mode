@@ -483,9 +483,7 @@ while True:
         time.sleep(1000)
         break
     
-    gameteam.remove(your_team)
-    hometeam.remove(your_team)
-    awayteam.remove(your_team)
+
     selected_team_index=teams.index(your_team)
     count=0
     year=2023+season
@@ -510,27 +508,36 @@ while True:
     loan=0
     print("Type 'Y' to begin season:")
     d=input()
+    away=0
+    home=0
+    hometeam=[]
+    awayteam=[]
+    gameteam=[]
+    hometeam.extend(teams)
+    awayteam.extend(teams)
+    gameteam.extend(teams)
+    gameteam.extend(teams)
+    
+    gameteam.remove(your_team)
+    gameteam.remove(your_team)
+    hometeam.remove(your_team)
+    awayteam.remove(your_team)
+    half=[]
 
     while count<39:
             selcted_team_index=teams.index(your_team)
-            
+            your_stadium=stadiums[teams.index(your_team)]
 
            
             count=count+1
-            computer_team = random.choice(gameteam)
-            if count>1:
-            
-                past=computer_team_index
-            
-            computer_team_index=teams.index(computer_team)
-            
-            
-            while computer_team==your_team or past==computer_team:
-                    
+            while True:
                 computer_team = random.choice(gameteam)
-                
-                computer_team_index=teams.index(computer_team)
-                continue
+                if computer_team==your_team or computer_team in half:
+                    continue
+                else:
+                    half.append(computer_team)
+                    break
+            computer_team_index=teams.index(computer_team)
             
             
           
@@ -538,50 +545,40 @@ while True:
             print(" ")
             val=random.randint(1,10)
             print("Week %s" % count)
-            if val<6 or home>=19:
+            
+            if val<6:
               if computer_team in awayteam:
                   print(f"{your_team} at {computer_team}")
                   stadium=stadiums[computer_team_index]
                   print("Venue: %s"%stadium)
-                  if computer_team in awayteam:
-                      awayteam.remove(computer_team)
+                  awayteam.remove(computer_team)
 
-                  away=away+1
               else:
                   print(f"{computer_team} at {your_team}")
-                  stadium=stadiums[selected_team_index]
-                  print("Venue: %s"%stadium)
-                  if computer_team in hometeam:
-        
-                     hometeam.remove(computer_team)
+                  print("Venue: %s"%your_stadium)
+                  hometeam.remove(computer_team)
                  
                   
-                  home=home+1
-                      
     
         
              
                   
-            elif val>=6 or away>=19:
+            elif val>=6:
                 if computer_team in hometeam:
                   print(f"{computer_team} at {your_team}")
-                  stadium=stadiums[selected_team_index]
-                  print("Venue: %s"%stadium)
-                  if computer_team in hometeam: 
-                      hometeam.remove(computer_team)
+                  print("Venue: %s"%your_stadium)
 
-                  home=home+1
+                  hometeam.remove(computer_team)
+
                 else:
                   print(f"{your_team} at {computer_team}")
                   stadium=stadiums[computer_team_index]
                   print("Venue: %s"%stadium)
-                  if computer_team in awayteam:
         
-                      awayteam.remove(computer_team)
+                  awayteam.remove(computer_team)
                  
                   
-                  away=away+1
-                  
+        
               
              
             print(" ")
@@ -674,6 +671,7 @@ while True:
                     continue
                 print("Do you want to move to any of these teams? (Y/N)")
                 y=input()
+        
                 if y=='Y' or y=='y' or y=='yes' or y=='Yes':
                     old=your_team
                     oldwin=numwin
@@ -709,6 +707,19 @@ while True:
                             print(" ")
                             continue
                     time.sleep(1)
+                    half=[]
+                    hometeam=[]
+                    awayteam=[]
+                    gameteam=[]
+                    hometeam.extend(teams)
+                    awayteam.extend(teams)
+                    gameteam.extend(teams)
+                    gameteam.extend(teams)
+    
+                    gameteam.remove(your_team)
+                    gameteam.remove(your_team)
+                    hometeam.remove(your_team)
+                    awayteam.remove(your_team)
 
                     selcted_team_index=teams.index(your_team)
                     if your_team=="Arsenal" or your_team=="Manchester City" or your_team=="Manchester United" or your_team=="Chelsea" or your_team=="Liverpool" or your_team=="Tottenham Hotspur":
@@ -730,12 +741,7 @@ while True:
                     points=numwin*3+numtie
 
 
-                hometeam.extend(teams)
-                awayteam.extend(teams)
-                gameteam.extend(teams)
-                gameteam.extend(teams)
-                gameteam.remove(your_team)
-                selected_team_index=teams.index(your_team)
+
                 
             
               
@@ -783,13 +789,10 @@ while True:
               print(" ")
               print("Final Standings:")
               print("-----------------")
-         # Create a dictionary to store the records of the other teams
+
               records = {}
 
-              # Set the total number of games played by each team
-              # Generate a random record for each team
               for team in teams:
-                    # Generate a random number of wins, losses, and draws
                     c=count-1
                     if team=="Arsenal" or team=="Manchester City" or team=="Manchester United" or team=="Chelsea" or team=="Liverpool" or team=="Tottenham Hotspur":
                          wins = random.randrange(22, 28)
@@ -826,7 +829,6 @@ while True:
               records[your_team]=(numwin,numtie,numloss, ypoints)
              
 
-              # Sort the teams by their points and print their records
               sorted_teams = sorted(records, key=lambda x: records[x][3], reverse=True)
               t=0
               ucl=["Real Madrid", "Barcelona", "Bayern Munich","Real Madrid", "Barcelona", "Bayern Munich", "Paris St. Germain", "Inter Milan", "Juventus", "Borrusia Dortmund", "Atletico Madrid", "AC Milan"]
@@ -943,18 +945,3 @@ while True:
    
              
               
-              
-        
-
-              
- 
-
-
-
-
-
-
-
-
-
-    
