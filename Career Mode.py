@@ -706,21 +706,6 @@ while True:
                             print("Please choose one of the options")
                             print(" ")
                             continue
-                    time.sleep(1)
-                    half=[]
-                    hometeam=[]
-                    awayteam=[]
-                    gameteam=[]
-                    hometeam.extend(teams)
-                    awayteam.extend(teams)
-                    gameteam.extend(teams)
-                    gameteam.extend(teams)
-    
-                    gameteam.remove(your_team)
-                    gameteam.remove(your_team)
-                    hometeam.remove(your_team)
-                    awayteam.remove(your_team)
-
                     selcted_team_index=teams.index(your_team)
                     if your_team=="Arsenal" or your_team=="Manchester City" or your_team=="Manchester United" or your_team=="Chelsea" or your_team=="Liverpool" or your_team=="Tottenham Hotspur":
                          wins = random.randrange(9, 13)
@@ -739,6 +724,24 @@ while True:
                         losses = random.randrange(7,  x)
                         draws = 38- wins - losses
                     points=numwin*3+numtie
+                    hometeam=[]
+                    awayteam=[]
+                    gameteam=[]
+                    hometeam.extend(teams)
+                    awayteam.extend(teams)
+                    gameteam.extend(teams)
+                    gameteam.extend(teams)
+    
+                    gameteam.remove(your_team)
+                    gameteam.remove(your_team)
+                    hometeam.remove(your_team)
+                    awayteam.remove(your_team)
+                
+                time.sleep(1)
+                half=[]
+                
+
+                    
 
 
 
@@ -945,3 +948,5 @@ while True:
    
              
               
+              
+        
