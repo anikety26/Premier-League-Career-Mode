@@ -589,9 +589,13 @@ while True:
             wh='sim'
             your_team_score=0
             gameteam.remove(computer_team)
-            if your_team=="Athletic Bilbao" or your_team=="Atletico Madrid" or your_team=="Real Madrid" or your_team=="Sevilla" or your_team=="Girona" or your_team=="Real Sociedad":
+            if your_team=="Real Madrid" or computer_team=="Barcelona" or your_team=="Atletico Madrid":
                 your_team_score=random.randint(0,7)
-            if your_team=="Athletic Bilbao" or your_team=="Atletico Madrid" or your_team=="Real Madrid" or your_team=="Sevilla" or your_team=="Girona" or your_team=="Real Sociedad":
+            if computer_team=="Real Madrid" or computer_team=="Barcelona" or computer_team=="Atletico Madrid":
+                computer_team_score=random.randint(0,6)
+            if your_team=="Athletic Bilbao"  or your_team=="Sevilla" or your_team=="Girona" or your_team=="Real Sociedad":
+                your_team_score=random.randint(0,6)
+            if your_team=="Athletic Bilbao" or your_team=="Sevilla" or your_team=="Girona" or your_team=="Real Sociedad":
                 your_team_score=random.randint(0,5)
             if your_team=="Real Betis" or your_team=="Valencia" or your_team=="Villarreal":
                 your_team_socre=random.randint(0,5)
@@ -710,12 +714,12 @@ while True:
                             print(" ")
                             continue
                     selcted_team_index=teams.index(your_team)
-                    if your_team=="Real Madrid" or your_team=="Barcelona":
+                    if your_team=="Real Madrid" or your_team=="Barcelona" or your_team=="Atletico Madrid":
                          wins = random.randrange(10, 14)
                          x=15-wins
                          losses = random.randrange(1,  x)
                          draws = 38- wins - losses
-                    elif your_team=="Sevilla" or your_team=="Atletico Madrid" or your_team=="Athletic Bilbao" or your_team=="Girona":
+                    elif your_team=="Sevilla" or your_team=="Real Sociedad" or your_team=="Athletic Bilbao" or your_team=="Girona":
                          wins = random.randrange(8, 12)
                          x=15-wins
                          losses = random.randrange(2,  x)
@@ -806,12 +810,12 @@ while True:
 
               for team in teams:
                     c=count-1
-                    if team=="Real Madrid" or team=="Barcelona":
+                    if team=="Real Madrid" or team=="Barcelona" or team=="Atletico Madrid":
                          wins = random.randrange(22, 28)
                          x=37-wins
                          losses = random.randrange(2,  x)
                          draws = 38- wins - losses
-                    elif team=="Sevilla" or team=="Atletico Madrid" or team=="Athletic Bilbao" or team=="Girona":
+                    elif team=="Sevilla" or team=="Real Sociedad" or team=="Athletic Bilbao" or team=="Girona":
                          wins = random.randrange(16, 24)
                          x=37-wins
                          losses = random.randrange(6,  x)
@@ -972,3 +976,4 @@ while True:
               
               
         
+
