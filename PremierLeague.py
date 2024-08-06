@@ -1,4 +1,3 @@
-
 t=1
 games={}
 hometeam=[]
@@ -37,7 +36,7 @@ def euro():
     if euro_winner==your_national:
         year=2023+season
         print(" ")
-        trophies.append(f"{year} Premier League")
+        trophies.append(f"{year} Euros")
         print("Congratulations, you have won the Euros!")
         print(" ")
         
@@ -139,7 +138,7 @@ def nationalchoose():
      print("Choose a national team:")
      national=['Argentina','USA','Germany','France','Spain','Urugauy','France','Netherlands','Belgium','Italy','Portugal','Denmark','Brazil','Colombia']
      can=1
-     nationalstart=['Argentina','Brazil','France','Germany','Spain','Portugal']
+     nationalstart=['Argentina','Brazil','England','France','Germany','Portugal']
      for a in nationalstart:
          print(f"{can}. {a}")
          can=can+1
