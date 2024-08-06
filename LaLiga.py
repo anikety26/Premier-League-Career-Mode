@@ -1,4 +1,3 @@
-
 t=1
 games={}
 hometeam=[]
@@ -630,8 +629,8 @@ while True:
             record=numwin+'-'+numtie+'-'+numloss
             print(f"Your record is %s and you have {points} points" % record)
             y='y'
-            #if y=='Y' or y=='y' or y=='yes':
-              #time.sleep(1)
+            if y=='Y' or y=='y' or y=='yes':
+              time.sleep(1)
             numwin=int(numwin)
             numloss=int(numloss)
             numtie=int(numtie)
