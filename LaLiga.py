@@ -875,11 +875,11 @@ while True:
                     if t<=4:
                         ucl.append(team)
                         ucl.append(team)
-                    if t==5 or t==6:
+                    if t==5:
                         uel.append(team)
                         uel.append(team)
                         uel.append(team)
-                    if t==7:
+                    if t==6:
                         uecl.append(team)
                         uecl.append(team)
                         uecl.append(team)
@@ -976,4 +976,3 @@ while True:
               
               
         
-
