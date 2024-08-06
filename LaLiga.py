@@ -596,8 +596,8 @@ while True:
                 computer_team_score=random.randint(0,6)
             if your_team=="Athletic Bilbao"  or your_team=="Sevilla" or your_team=="Girona" or your_team=="Real Sociedad":
                 your_team_score=random.randint(0,6)
-            if your_team=="Athletic Bilbao" or your_team=="Sevilla" or your_team=="Girona" or your_team=="Real Sociedad":
-                your_team_score=random.randint(0,5)
+            if computer_team=="Athletic Bilbao" or computer_team=="Sevilla" or computer_team=="Girona" or computer_team=="Real Sociedad":
+                computer_team_score=random.randint(0,5)
             if your_team=="Real Betis" or your_team=="Valencia" or your_team=="Villarreal":
                 your_team_socre=random.randint(0,5)
             if computer_team=="Real Betis" or computer_team=="Valencia" or computer_team=="Villarreal":
