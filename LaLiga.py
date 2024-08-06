@@ -37,7 +37,7 @@ def euro():
     if euro_winner==your_national:
         year=2023+season
         print(" ")
-        trophies.append(f"{year} Premier League")
+        trophies.append(f"{year} Euros")
         print("Congratulations, you have won the Euros!")
         print(" ")
         
