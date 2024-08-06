@@ -139,7 +139,7 @@ def nationalchoose():
      print("Choose a national team:")
      national=['Argentina','USA','Germany','France','Spain','Urugauy','France','Netherlands','Belgium','Italy','Portugal','Denmark','Brazil','Colombia']
      can=1
-     nationalstart=['Argentina','Brazil','England','France','Germany','Portugal']
+     nationalstart=['Argentina','Brazil','France','Germany','Portugal','Spain']
      for a in nationalstart:
          print(f"{can}. {a}")
          can=can+1
@@ -206,6 +206,7 @@ while True:
             
         print("You have offers from:")
         if loan==1:
+            
             tot=random.randint(1,3)
         else:
             tot=random.randint(1,4)
@@ -607,7 +608,7 @@ while True:
                 computer_team_score=random.randint(0,3)
             else:
                 your_team_score=random.randint(0,5)
-                computer_team_score=random.randint(0,3)
+                computer_team_score=random.randint(0,4)
               
             if your_team_score > computer_team_score:
                 print(f"Congratulations! Your team won the game {your_team_score}-{computer_team_score}.")
@@ -715,12 +716,12 @@ while True:
                             continue
                     selcted_team_index=teams.index(your_team)
                     if your_team=="Real Madrid" or your_team=="Barcelona" or your_team=="Atletico Madrid":
-                         wins = random.randrange(10, 14)
+                         wins = random.randrange(10, 15)
                          x=15-wins
                          losses = random.randrange(1,  x)
                          draws = 38- wins - losses
                     elif your_team=="Sevilla" or your_team=="Real Sociedad" or your_team=="Athletic Bilbao" or your_team=="Girona":
-                         wins = random.randrange(8, 12)
+                         wins = random.randrange(7, 12)
                          x=15-wins
                          losses = random.randrange(2,  x)
                          draws = 38- wins - losses
@@ -781,6 +782,9 @@ while True:
               
               fa.append(your_team)
               fa.append(your_team)
+              if season>1:
+                  carabao.append(fa_winner)
+                  carabao.append(two)
               
                 
               
@@ -800,8 +804,6 @@ while True:
               fa_winner=random.choice(fa)
               fa.remove(fa_winner)
               two=random.choice(fa)
-              carabao.append(fa_winner)
-              carabao.append(two)
               print(" ")
               print("Final Standings:")
               print("-----------------")
@@ -811,12 +813,12 @@ while True:
               for team in teams:
                     c=count-1
                     if team=="Real Madrid" or team=="Barcelona" or team=="Atletico Madrid":
-                         wins = random.randrange(22, 28)
+                         wins = random.randrange(24, 30)
                          x=37-wins
                          losses = random.randrange(2,  x)
                          draws = 38- wins - losses
                     elif team=="Sevilla" or team=="Real Sociedad" or team=="Athletic Bilbao" or team=="Girona":
-                         wins = random.randrange(16, 24)
+                         wins = random.randrange(16, 25)
                          x=37-wins
                          losses = random.randrange(6,  x)
                          draws = 38- wins - losses
