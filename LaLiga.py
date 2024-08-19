@@ -719,23 +719,26 @@ while True:
                          wins = random.randrange(10, 15)
                          x=15-wins
                          losses = random.randrange(1,  x)
-                         draws = 38- wins - losses
+                         draws = 19- wins - losses
                     elif your_team=="Sevilla" or your_team=="Real Sociedad" or your_team=="Athletic Bilbao" or your_team=="Girona":
                          wins = random.randrange(7, 12)
                          x=15-wins
                          losses = random.randrange(2,  x)
-                         draws = 38- wins - losses
+                         draws = 19- wins - losses
                     
                     elif your_team=="Espanyol" or your_team=="Valladolid" or your_team=="Rayo Vallecano" or your_team in relteamsorg:
                          wins = random.randrange(1, 5)
                          x=20-wins
                          losses = random.randrange(14,  x)
-                         draws = 38- wins - losses
+                         draws = 19- wins - losses
                     else:
                         wins = random.randrange(3, 9)
                         x=17-wins
                         losses = random.randrange(7,  x)
-                        draws = 38- wins - losses
+                        draws = 19- wins - losses
+                    numwin=wins
+                    numloss=losses
+                    numtie=draws
                     points=numwin*3+numtie
                     hometeam=[]
                     awayteam=[]
