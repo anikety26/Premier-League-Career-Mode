@@ -711,18 +711,21 @@ while True:
                          wins = random.randrange(9, 13)
                          x=15-wins
                          losses = random.randrange(1,  x)
-                         draws = 38- wins - losses
+                         draws = 19- wins - losses
                     
                     elif your_team=="Sheffield United" or your_team=="Leeds United" or your_team=="Southampton" or your_team=="Luton Town" or your_team=="Watford":
                          wins = random.randrange(1, 5)
                          x=20-wins
                          losses = random.randrange(14, x)
-                         draws = 38- wins - losses
+                         draws = 19- wins - losses
                     else:
                         wins = random.randrange(3, 9)
                         x=17-wins
                         losses = random.randrange(7,  x)
-                        draws = 38- wins - losses
+                        draws = 19- wins - losses
+                    numwin=wins
+                    numloss=losses
+                    numtie=draws
                     points=numwin*3+numtie
                     hometeam=[]
                     awayteam=[]
@@ -910,7 +913,7 @@ while True:
               goals=0
               assist=0
               if numwin>=16:
-                  goals=random.randint(16,31)
+                  goals=random.randint(16,30)
                   assist=random.randint(9,18)
                   totgoal.append(goals)
                   totassists.append(assist)
