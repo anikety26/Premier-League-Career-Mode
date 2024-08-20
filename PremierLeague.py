@@ -1,3 +1,4 @@
+
 t=1
 games={}
 hometeam=[]
@@ -168,14 +169,7 @@ season=0
         
 while True:
     season=season+1
-    count=0
-    past=0
-    numwin=0
-    numloss=0
-    numtie=0
-    points=0
-    goals=0
-    assists=0
+
     computer_team_index=0
     options=[]
     options.extend(teams)
@@ -211,16 +205,16 @@ while True:
         count=1
         big=0
         offers=[]
-        good=["Chelsea","Liverpool","Manchester United","Manchester City","Arsenal","Tottenham Hotspur","Aston Villa","Newcastle United","Brighton & Hove Albion"]
         if your_team.title() in good:
             good.remove(your_team)
         if old in good:
             good.remove(old)
+        if goals>=20:
+            options=good
         if season>1 and goals>=15:
             while count<=tot:
                 da=19-count
-                opn=random.randint(0,da)
-                opt= good[opn]
+                opt=random.choice(good)
                 good.remove(opt)
                 print(f"{count}. {opt}")
                 offers.append(opt)
@@ -459,6 +453,14 @@ while True:
                         print("Please choose one of the options")
                         print(" ")
                         continue
+    count=0
+    past=0
+    numwin=0
+    numloss=0
+    numtie=0
+    points=0
+    goals=0
+    assists=0
         
     hometeam=[]
     awayteam=[]
@@ -648,6 +650,14 @@ while True:
                 tot=tot+1
                 count2=1
                 offers=[]
+                good=["Chelsea","Liverpool","Manchester United","Manchester City","Arsenal","Tottenham Hotspur","Aston Villa","Newcastle United","Brighton & Hove Albion"]
+                if your_team.title() in good:
+                    good.remove(your_team)
+                if old in good:
+                    good.remove(old)
+                if goals>=20:
+                    options=good
+                
                 while count2<=tot:
                     da=19-count2-5
                     if da<=len(options):
@@ -825,22 +835,25 @@ while True:
                         draws = oldtie+19- numwin - numloss
 
                     point=3*wins+draws
+                    r=random.randrange(1,30)
 
 
-                    records[team] = (wins, draws, losses, point)
+                    records[team] = (wins, draws, losses, point,r)
             
               ypoints=numwin*3+numtie
+              r=random.randrange(1,30)
              
 
-              records[your_team]=(numwin,numtie,numloss, ypoints)
+              records[your_team]=(numwin,numtie,numloss, ypoints,r)
              
 
-              sorted_teams = sorted(records, key=lambda x: records[x][3], reverse=True)
+              sorted_teams = sorted(records, key=lambda x: (records[x][3],records[x][4]), reverse=True)
+              
               t=0
               ucl=["Real Madrid", "Barcelona", "Bayern Munich","Real Madrid", "Barcelona", "Bayern Munich", "Paris St. Germain", "Inter Milan", "Juventus", "Borrusia Dortmund", "Atletico Madrid", "AC Milan"]
               uel=["Rangers","Celtic","Atalanta","Roma","Ajax","Bayer Leverkusen","Villarreal","Sporting CP","Olympiacos ","AEK Athens","Slavia Prague","Real Betis","Marseille","Rangers","Celtic","Atalanta","Roma","Ajax","Bayer Leverkusen","Villarreal","Marseille"]
               uecl=["Lille","Club Brugge","Fenerbache","Genk","Fiorentina","Eintracht Frankfurt","Lille","Club Brugge","Fenerbache","Genk","Fiorentina","Eintracht Frankfurt","Dinamo Zagreb","Besiktas","Viktoria Plzen"]
-                    
+              good=[]
               for team in sorted_teams:
                     t=t+1
                     print(f"{team}: {records[team][3]} points")
@@ -853,14 +866,17 @@ while True:
                     if t<=4:
                         ucl.append(team)
                         ucl.append(team)
+                        good.append(team)
                     if t==5 or t==6:
                         uel.append(team)
                         uel.append(team)
                         uel.append(team)
+                        good.append(team)
                     if t==7:
                         uecl.append(team)
                         uecl.append(team)
                         uecl.append(team)
+                        good.append(team)
                     if t>=18:
                         f=teams.index(team)
                         relteams.append(team)
