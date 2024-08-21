@@ -339,8 +339,12 @@ while True:
         
         else:
              print(" ")
-             if your_team in relteams:
-                print(f"{your_team} got relegated so you need to transfer")
+             a=random.randrange(1,10)
+             if your_team in relteams or (a<=5 and goals<9 and points<42):
+                if your_team in relteams:
+                    print(f"{your_team} got relegated so you need to transfer")
+                else:
+                    print(f"{your_team} are forcing you out of the club so you need to transfer")
                 print(" ")
                 while True:
                     print("Which team do you want to move to?")
@@ -1002,4 +1006,3 @@ while True:
              
               
               
-        
