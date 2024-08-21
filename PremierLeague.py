@@ -1,4 +1,3 @@
-
 t=1
 games={}
 hometeam=[]
@@ -105,7 +104,6 @@ good=["Chelsea","Liverpool","Manchester United","Manchester City","Arsenal","Tot
 print("Welcome to the Premier League Football Game!")
 old=0
 
-                        
 
 
 def chooseteam():
@@ -268,18 +266,21 @@ while True:
             if goals>18:
                 print(f"{m}. Sign with {your_team}")
                 print(f"{n}. Go back to {old}")
+                print(f"{o}. Retire")
                 offers.append(old)
                 offers.append(your_team)
             elif a>=8 and b>=8 or goals<12:
                 print(f"{m}. Go back to {old}")
+                print(f"{n}. Retire")
                 offers.append(old)
   
             elif 12<goals<18 or a>=7:
                 print(f"{m}. Sign with {your_team}")
+                print(f"{n}. Retire")
                 offers.append(your_team)
-            else:
-                a=1
-                print(f"{m}. Retire")
+
+
+               
             dfd=your_team
         if age>31:
             print("Do you want to move to any of these teams or retire? (Y/N)")
@@ -296,7 +297,6 @@ while True:
                 your_team=your_team.title()
                 if your_team.lower()=="go back" and loan==1:
                     your_team=old
-                    career.append(your_team)
                     print(" ")
                     print(f"You are now back at {your_team}")
                     print(" ")
@@ -396,7 +396,6 @@ while True:
                 print(" ")
                 print(f"You are now back at {your_team}")
                 print(" ")
-                career.append(your_team)
              elif loan==1 and your_team==dfd:
                 print("")
                 print(f"You are signing with {your_team}")
