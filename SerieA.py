@@ -1,3 +1,4 @@
+
 t=1
 games={}
 hometeam=[]
@@ -314,7 +315,6 @@ while True:
                     your_team="AC Milan"
                 if your_team.lower()=="go back" and loan==1:
                     your_team=old
-                    career.append(your_team)
                     print(" ")
                     print(f"You are now back at {your_team}")
                     print(" ")
@@ -418,7 +418,6 @@ while True:
                 print(" ")
                 print(f"You are now back at {your_team}")
                 print(" ")
-                career.append(your_team)
              elif loan==1 and your_team==dfd:
                 print("")
                 print(f"You are signing with {your_team}")
