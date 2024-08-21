@@ -303,14 +303,20 @@ while True:
                     break
                 elif your_team.lower()=="sign" and loan==1:
                     your_team=dfd
-                    career.append(your_team)
+                    if loan==1:
+                        a=a
+                    else:
+                        career.append(your_team)
                     print(" ")
                     print(f"You are signing with {your_team}")
                     print(" ")
                     break
                 elif your_team.title() in offers:
                     your_team=your_team.title()
-                    career.append(your_team)
+                    if loan==1:
+                        a=a
+                    else:
+                        career.append(your_team)
                     print(" ")
                     print(f"You now play for {your_team}")
                     print(" ")
