@@ -1,5 +1,5 @@
-# Football Career Mode
-Rules for Premier League, La Liga, and Serie A Games:
+# Premier League Career Mode
+Rules:
 1. Choose one of the ten clubs that you want to start your career with
 2. Choose which national team you will represent
 3. Simulate through half the season until the january transfer window
