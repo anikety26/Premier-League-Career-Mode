@@ -18,6 +18,7 @@ totgoal=[]
 totassist=[]
 trophies=[]
 winners=[]
+prev_team='b'
 ucl=["Real Madrid", "Barcelona", "Bayern Munich","Real Madrid", "Barcelona", "Bayern Munich", "Paris St. Germain", "Inter Milan", "Juventus", "Borrusia Dortmund", "Atletico Madrid", "AC Milan"]
 def worldcup():
     worldcupteams=['Argentina','France','Spain','Brazil','Argentina','France','Spain','Brazil','England','Portugal','Uruguay','Germany','Germany','Netherlands','Belgium','Italy']
@@ -96,6 +97,7 @@ stadiums = [  'Emirates Stadium',  'Villa Park','Vitality Stadium',  'Gtech Comm
                   "St. James' Park",'City Ground',"St. Mary's Stadium",  'Tottenham Hotspur Stadium', 'London Stadium',  'Molineux Stadium']
 
 relteams =['Luton Town', 'Burnley', 'Sheffield United', 'Leeds United','Watford']
+relstartteams =['Luton Town', 'Burnley', 'Sheffield United', 'Leeds United','Watford']
 relstadiums=['Kenilworth Road','Turf Moor','Bramall Lane','Elland Road','Vicarage Road']
 fateams=[]
 carabaoteams=[]
@@ -121,7 +123,6 @@ def chooseteam():
          print(" ")
         
          if your_team in startteams:
-            career.append(your_team)
             selected_team_index=teams.index(your_team)
             print(f"You have chosen {your_team}.")
             print(" ")
@@ -177,6 +178,7 @@ while True:
         year=2023+season
         print(f"Date: June 1st, {year}")
         print("It is the summer transfer window")
+        prev_team=your_team
         print(" ")
         if age>=35:
             print("You have retired.")
@@ -303,20 +305,13 @@ while True:
                     break
                 elif your_team.lower()=="sign" and loan==1:
                     your_team=dfd
-                    if loan==1:
-                        a=a
-                    else:
-                        career.append(your_team)
                     print(" ")
                     print(f"You are signing with {your_team}")
                     print(" ")
                     break
                 elif your_team.title() in offers:
                     your_team=your_team.title()
-                    if loan==1:
-                        a=a
-                    else:
-                        career.append(your_team)
+     
                     print(" ")
                     print(f"You now play for {your_team}")
                     print(" ")
@@ -376,7 +371,7 @@ while True:
                         print(" ")
                         print(f"You now play for {your_team}")
                         print(" ")
-                        career.append(your_team)
+                       
                         break
                     else:
                         print(" ")
@@ -406,19 +401,18 @@ while True:
                 print("")
                 print(f"You are signing with {your_team}")
                 print(" ")
-                career.append(your_team)
+           
              elif loan==1:
                 print(" ")
                 print(f"You now play for {your_team}")
                 print(" ")
-                career.append(your_team)
+            
              print(" ")
     elif season>1:
             if 'Retire' in offers:
                 offers.remove('Retire')
             if your_team in offers:
                 your_team=your_team
-                career.append(your_team)
 
             elif your_team in relteams:
                 print(f"{your_team} got relegated so you need to transfer")
@@ -451,7 +445,7 @@ while True:
                         print(" ")
                         print(f"You now play for {your_team}")
                         print(" ")
-                        career.append(your_team)
+                        
                         break
                     else:
                         print(" ")
@@ -504,8 +498,10 @@ while True:
     if year==2025 or year==2033 or year==2037 or year==2041 or year==2045 or year==2049 or year==2054:
         print(f"{year} Club World Cup Winner: {clubworld(winners)}")
         time.sleep(1)
-    
-    
+    if your_team==old or your_team==prev_team:
+        a=2
+    else: 
+        career.append(your_team)
     print(" ")
     print(f"Season {season}")
     age=20+season
@@ -722,21 +718,26 @@ while True:
                             print(" ")
                             continue
                     selcted_team_index=teams.index(your_team)
-                    if your_team=="Arsenal" or your_team=="Manchester City" or your_team=="Manchester United" or your_team=="Chelsea" or your_team=="Liverpool" or your_team=="Tottenham Hotspur":
+                    best=['Arsenal','Chelsea','Liverpool','Manchester United','Manchester City','Tottenham Hotspur']
+                    worst=["Sheffield United","Leeds United","Southampton","Luton Town","Watford","Ipswich Town"]
+                    rest= [ 'Aston Villa','Bournemouth', 'Brentford', 'Brighton & Hove Albion',
+             'Crystal Palace', 'Everton','Fulham','Leicester City',
+             'Newcastle United','Nottingham Forest', 'West Ham United', 'Wolverhampton Wanderers']
+                    if your_team in best or your_team=="Arsenal" or your_team=="Manchester City" or your_team=="Manchester United" or your_team=="Chelsea" or your_team=="Liverpool" or your_team=="Tottenham Hotspur":
                          wins = random.randrange(9, 13)
                          x=15-wins
                          losses = random.randrange(1,  x)
                          draws = 19- wins - losses
                     
-                    elif your_team=="Sheffield United" or your_team=="Leeds United" or your_team=="Southampton" or your_team=="Luton Town" or your_team=="Watford":
-                         wins = random.randrange(1, 5)
+                    elif your_team in worst or your_team=="Sheffield United" or your_team=="Leeds United" or your_team=="Southampton" or your_team=="Luton Town" or your_team=="Watford":
+                         wins = random.randrange(3, 5)
                          x=20-wins
                          losses = random.randrange(14, x)
                          draws = 19- wins - losses
-                    else:
-                        wins = random.randrange(3, 9)
+                    elif your_team in rest:
+                        wins = random.randrange(5, 10)
                         x=17-wins
-                        losses = random.randrange(7,  x)
+                        losses = random.randrange(6,  x)
                         draws = 19- wins - losses
                     numwin=wins
                     numloss=losses
@@ -814,31 +815,59 @@ while True:
               records = {}
 
               for team in teams:
+                    best=['Arsenal','Chelsea','Liverpool','Manchester United','Manchester City','Tottenham Hotspur']
+                    worst=["Sheffield United","Leeds United","Southampton","Luton Town","Watford","Ipswich Town"]
+                    rest= [ 'Aston Villa','Bournemouth', 'Brentford', 'Brighton & Hove Albion',
+             'Crystal Palace', 'Everton','Fulham','Leicester City',
+             'Newcastle United','Nottingham Forest', 'West Ham United', 'Wolverhampton Wanderers']
+
                     c=count-1
-                    if team=="Arsenal" or team=="Manchester City" or team=="Manchester United" or team=="Chelsea" or team=="Liverpool" or team=="Tottenham Hotspur":
+                    if team in best or team=="Arsenal" or team=="Manchester City" or team=="Manchester United" or team=="Chelsea" or team=="Liverpool" or team=="Tottenham Hotspur":
                          wins = random.randrange(22, 28)
                          x=37-wins
                          losses = random.randrange(2,  x)
                          draws = 38- wins - losses
+                         if old==team:
+                             wins = random.randrange(9, 13)
+                             x=15-wins
+                             losses = random.randrange(1,  x)
+                             draws = 19- wins - losses
+                             wins=wins+oldwin
+                             losses=losses+oldloss
+                             draws=draws+oldtie
+                             
+
                     
-                    elif team=="Sheffield United" or team=="Leeds United" or team=="Southampton" or team=="Luton Town" or team=="Watford":
+                    elif team in worst or team=="Sheffield United" or team=="Leeds United" or team=="Southampton" or team=="Luton Town" or team=="Watford":
                          wins = random.randrange(3, 6)
                          x=37-wins
                          losses = random.randrange(28,  x)
                          draws = 38- wins - losses
-                    else:
-                        wins = random.randrange(4, 15)
+                         if old==team:
+                             wins = random.randrange(1, 5)
+                             x=20-wins
+                             losses = random.randrange(14, x)
+                             draws = 19- wins - losses
+                             wins=wins+oldwin
+                             losses=losses+oldloss
+                             draws=draws+oldtie
+                    elif team in rest:
+                        wins = random.randrange(8, 19)
                         x=31-wins
-                        losses = random.randrange(13,  x)
+                        losses = random.randrange(8,  x)
                         draws = 38- wins - losses
+                        if old==team:
+                             wins = random.randrange(3, 9)
+                             x=17-wins
+                             losses = random.randrange(7,  x)
+                             draws = 19- wins - losses
+                             wins=wins+oldwin
+                             losses=losses+oldloss
+                             draws=draws+oldtie
                     
 
-                    if old in teams and old==team:
-                        wins = oldwin + random.randrange(3, 13)
-                        x=20-numwin
-                        losses = oldloss+random.randrange(3,  6)
-                        draws = oldtie+19- numwin - numloss
-
+                    
+                        
                     point=3*wins+draws
                     r=random.randrange(1,30)
 
