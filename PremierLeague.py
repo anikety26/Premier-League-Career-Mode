@@ -18,6 +18,7 @@ totgoal=[]
 totassist=[]
 trophies=[]
 winners=[]
+loan=0
 prev_team='b'
 ucl=["Real Madrid", "Barcelona", "Bayern Munich","Real Madrid", "Barcelona", "Bayern Munich", "Paris St. Germain", "Inter Milan", "Juventus", "Borrusia Dortmund", "Atletico Madrid", "AC Milan"]
 def worldcup():
@@ -505,6 +506,8 @@ while True:
     if your_team==old or your_team==prev_team:
         a=2
     else: 
+        career.append(your_team)
+    if loan==1 and your_team==prev_team:
         career.append(your_team)
     print(" ")
     print(f"Season {season}")
@@ -1006,3 +1009,4 @@ while True:
              
               
               
+        
