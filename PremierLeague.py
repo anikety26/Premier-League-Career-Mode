@@ -1,3 +1,4 @@
+
 t=1
 games={}
 hometeam=[]
@@ -82,24 +83,24 @@ def clubworld(winners):
 
 import math
 num=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-teams = ['Arsenal', 'Aston Villa','Bournemouth', 'Brentford', 'Brighton & Hove Albion','Chelsea',
-             'Crystal Palace', 'Everton','Fulham','Ipswich Town' ,'Leicester City','Liverpool', 'Manchester City', 'Manchester United',
-             'Newcastle United','Nottingham Forest', 'Southampton', 'Tottenham Hotspur', 'West Ham United', 'Wolverhampton Wanderers']
-startteams = ['Bournemouth', 'Brentford', 
-             'Crystal Palace', 'Everton','Fulham','Ipswich Town', 'Leicester City', 'Nottingham Forest','Southampton',  'Wolverhampton Wanderers']
+teams = ['Arsenal', 'Aston Villa','Bournemouth', 'Brentford', 'Brighton & Hove Albion','Burnley','Chelsea',
+             'Crystal Palace', 'Everton','Fulham',"Leeds United",'Liverpool', 'Manchester City', 'Manchester United',
+             'Newcastle United','Nottingham Forest', 'Sunderland','Tottenham Hotspur', 'West Ham United', 'Wolverhampton Wanderers']
+startteams = ['Bournemouth', 'Brentford', 'Burnley',
+             'Crystal Palace', 'Everton','Fulham',"Leeds United", 'Nottingham Forest','Sunderland', 'Wolverhampton Wanderers']
 hometeam.extend(teams)
 awayteam.extend(teams)
 gameteam.extend(teams)
 gameteam.extend(teams)
     
 your=[]
-stadiums = [  'Emirates Stadium',  'Villa Park','Vitality Stadium',  'Gtech Community Stadium','American Express Stadium', 'Stamford Bridge',  'Selhurst Park',
-                  'Goodison Park','Craven Cottage','Portman Road Stadium','King Power Stadium', 'Anfield',  'Etihad Stadium',  'Old Trafford',
-                  "St. James' Park",'City Ground',"St. Mary's Stadium",  'Tottenham Hotspur Stadium', 'London Stadium',  'Molineux Stadium']
+stadiums = [  'Emirates Stadium',  'Villa Park','Vitality Stadium',  'Gtech Community Stadium','American Express Stadium', 'Turf Moor','Stamford Bridge',  'Selhurst Park',
+                  'Goodison Park','Craven Cottage',"Elland Road", 'Anfield',  'Etihad Stadium',  'Old Trafford',
+                  "St. James' Park",'City Ground', 'Stadium of Light', 'Tottenham Hotspur Stadium', 'London Stadium',  'Molineux Stadium']
 
-relteams =['Luton Town', 'Burnley', 'Sheffield United', 'Leeds United','Watford']
-relstartteams =['Luton Town', 'Burnley', 'Sheffield United', 'Leeds United','Watford']
-relstadiums=['Kenilworth Road','Turf Moor','Bramall Lane','Elland Road','Vicarage Road']
+relteams =['Southampton', 'Leicester City', 'Sheffield United', 'Leeds United','Watford','Luton Town']
+relstartteams =['Southampton', 'Leicester City', 'Sheffield United', 'Leeds United','Watford','Luton Town']
+relstadiums=["St Mary's Stadium",'King Power Stadium','Bramall Lane','Elland Road','Vicarage Road','Kenilworth Road']
 fateams=[]
 carabaoteams=[]
 bigsix=["Chelsea","Liverpool","Manchester United","Manchester City","Arsenal","Tottenham Hotspur"]
@@ -1006,7 +1007,4 @@ while True:
         
     print(" ")
    
-             
-              
-              
-        
+            
