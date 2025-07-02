@@ -27,7 +27,7 @@ def worldcup():
     
     worldcup_winner=random.choice(worldcupteams)
     if worldcup_winner==your_national:
-        year=2023+season
+        year=2024+season
         print(" ")
         trophies.append(f"{year} World Cup")
         print("Congratulations, you have won the World Cup!")
@@ -37,7 +37,7 @@ def euro():
     euroteams=['England','Spain','France','Netherlands','Germany','Belgium','England','Spain','France','Netherlands','Germany','Belgium','Italy','Croatia','Denmark']
     euro_winner=random.choice(euroteams)
     if euro_winner==your_national:
-        year=2023+season
+        year=2024+season
         print(" ")
         trophies.append(f"{year} Euros")
         print("Congratulations, you have won the Euros!")
@@ -48,7 +48,7 @@ def copa():
     copateams=['Argentina','Brazil','Uruguay','Colombia','Argentina','Brazil','Uruguay','Colombia','Chile','Venezuela','Canada','Mexico','USA']
     copa_winner=random.choice(copateams)
     if copa_winner==your_national:
-        year=2023+season
+        year=2024+season
         print(" ")
         trophies.append(f"{year} Copa America")
         print("Congratulations, you have won the Copa America!")
@@ -56,9 +56,9 @@ def copa():
     return copa_winner
 
 def clubworld(winners):
-    clubteams=["Al Ahly","Waydad Casablanca","Monterrey","Leon","Pachuca","Seattle Sounders","Al-Hilal","Al Ain","Urawa Red Diamonds","Ulsan HD","Flamengo","Palmeiras","Fluminense","River Plate","Flamengo","Palmeiras","Fluminense","River Plate","Borussia Dortmund","Bayern Munich","Inter Milan","Juventus","Atletico Madrid","Real Madrid","Paris St. Germain","Borussia Dortmund","Bayern Munich","Inter Milan","Juventus","Atletico Madrid","Real Madrid","Paris St. Germain"]
+    clubteams=["Al Ahly","Waydad Casablanca","Monterrey","LAFC","Pachuca","Seattle Sounders","Al-Hilal","Al Ain","Urawa Red Diamonds","Ulsan HD","Flamengo","Palmeiras","Fluminense","River Plate","Flamengo","Palmeiras","Fluminense","River Plate","Borussia Dortmund","Bayern Munich","Inter Milan","Juventus","Atletico Madrid","Real Madrid","Paris St. Germain","Borussia Dortmund","Bayern Munich","Inter Milan","Juventus","Atletico Madrid","Real Madrid","Paris St. Germain"]
     
-    year=2023+season
+    year=2024+season
     if year==2025:
         clubteams.append('Manchester City')
         clubteams.append('Chelsea')
@@ -73,7 +73,7 @@ def clubworld(winners):
     club_winner=random.choice(clubteams)
     winners=[]
     if club_winner==your_team:
-        year=2023+season
+        year=2024+season
         print(" ")
         trophies.append(f"{year} Club World Cup")
         print("Congratulations, you have won the Club World Cup!")
@@ -88,6 +88,36 @@ teams = ['Arsenal', 'Aston Villa','Bournemouth', 'Brentford', 'Brighton & Hove A
              'Newcastle United','Nottingham Forest', 'Sunderland','Tottenham Hotspur', 'West Ham United', 'Wolverhampton Wanderers']
 startteams = ['Bournemouth', 'Brentford', 'Burnley',
              'Crystal Palace', 'Everton','Fulham',"Leeds United", 'Nottingham Forest','Sunderland', 'Wolverhampton Wanderers']
+team_aliases = {
+    "man u": "Manchester United",
+    "man united": "Manchester United",
+    "mancity": "Manchester City",
+    "man city": "Manchester City",
+    "ars": "Arsenal",
+    "liv": "Liverpool",
+    "che": "Chelsea",
+    "spurs": "Tottenham Hotspur",
+    "newcastle": "Newcastle United",
+    "villa": "Aston Villa",
+    "west ham": "West Ham United",
+    "wolves": "Wolverhampton Wanderers",
+    "eve": "Everton",
+    "palace": "Crystal Palace",
+    "forest": "Nottingham Forest",
+    "leeds": "Leeds United",
+    "sund": "Sunderland",
+    "bournemouth": "Bournemouth",
+    "brighton": "Brighton & Hove Albion",
+    "brent": "Brentford",
+    "ful": "Fulham",
+    "burn": "Burnley",
+    "luton": "Luton Town",
+    "leicester": "Leicester City",
+    "sheffield": "Sheffield United"
+}
+def autocorrect_team_input(input_team):
+    input_team = input_team.lower().strip()
+    return team_aliases.get(input_team, input_team.title())
 hometeam.extend(teams)
 awayteam.extend(teams)
 gameteam.extend(teams)
@@ -108,7 +138,8 @@ good=["Chelsea","Liverpool","Manchester United","Manchester City","Arsenal","Tot
 print("Welcome to the Premier League Football Game!")
 old=0
 
-
+badteams=["Burnley","Leeds United","Sunderland","Wolverhampton Wanderers","Everton"]
+badteams.append(relteams)
 
 def chooseteam():
      numwin=0
@@ -120,8 +151,7 @@ def chooseteam():
             print(f"{i+1}. {team}")
             i=i+1
      while True:
-         your_team = input()
-         your_team=your_team.title()
+         your_team = autocorrect_team_input(input())
          print(" ")
         
          if your_team in startteams:
@@ -140,7 +170,15 @@ def nationalchoose():
      print("Choose a national team:")
      national=['Argentina','USA','Germany','France','Spain','Urugauy','France','Netherlands','Belgium','Italy','Portugal','Denmark','Brazil','Colombia']
      can=1
-     nationalstart=['Argentina','Brazil','England','France','Germany','Portugal']
+     random.shuffle(national)
+     nationalstart=[]
+     nationalstart.append(national[0])
+     nationalstart.append(national[1])
+     nationalstart.append(national[2])
+     nationalstart.append(national[3])
+     nationalstart.append(national[4])
+     
+     
      for a in nationalstart:
          print(f"{can}. {a}")
          can=can+1
@@ -177,7 +215,7 @@ while True:
     if your_team in options:
         options.remove(your_team)
     if season>1:
-        year=2023+season
+        year=2024+season
         print(f"Date: June 1st, {year}")
         print("It is the summer transfer window")
         prev_team=your_team
@@ -297,8 +335,7 @@ while True:
         if y.upper()=='Y' or y.upper()=='YES':
             while True:
                 print("Which team do you want to go to?")
-                your_team=input()
-                your_team=your_team.title()
+                your_team = autocorrect_team_input(input())
                 if your_team.lower()=="go back" and loan==1:
                     your_team=old
                     print(" ")
@@ -350,8 +387,7 @@ while True:
                 print(" ")
                 while True:
                     print("Which team do you want to move to?")
-                    your_team=input()
-                    your_team=your_team.title()
+                    your_team = autocorrect_team_input(input())
                     if your_team.lower()=="retire":
                         print("You have retired.")
                         print(" ")
@@ -424,8 +460,7 @@ while True:
                 print(f"{your_team} got relegated so you need to transfer")
                 while True:
                     print("Which team do you want to move to?")
-                    your_team=input()
-                    your_team=your_team.title()
+                    your_team = autocorrect_team_input(input())
                     if your_team.lower()=="retire":
                         print("You have retired.")
                         print(" ")
@@ -493,7 +528,7 @@ while True:
 
     selected_team_index=teams.index(your_team)
     count=0
-    year=2023+season
+    year=2024+season
     if year==2026 or year==2030 or year==2034 or year==2038 or year==2042 or year==2046 or year==2050:
         print(f"{year} World Cup Winner: {worldcup()}")
         time.sleep(1)
@@ -517,8 +552,10 @@ while True:
     print(f"Club: {your_team}")
     print(" ")
     loan=0
-    print("Type 'Y' to begin season:")
+    print("Type 'Y' to begin season or type 'S' to quick sim season:")
     d=input()
+    if d=="S" or d=='s':
+        simmode=0
     away=0
     home=0
     hometeam=[]
@@ -598,21 +635,35 @@ while True:
             wh='sim'
             your_team_score=0
             gameteam.remove(computer_team)
-            if your_team=="Arsenal" or your_team=="Manchester City" or your_team=="Manchester United" or your_team=="Chelsea" or your_team=="Liverpool" or your_team=="Tottenham Hotspur":
-                your_team_score=random.randint(0,7)
-            if computer_team=="Arsenal" or computer_team=="Manchester City" or computer_team=="Manchester United" or computer_team=="Chelsea" or computer_team=="Liverpool" or computer_team=="Tottenham Hotspur":
-                computer_team_score=random.randint(0,5)
-            if your_team=="Brighton & Hove Albion" or your_team=="West Ham United" or your_team=="Aston Villa":
-                your_team_socre=random.randint(0,5)
-            if computer_team=="Brighton & Hove Albion" or computer_team=="West Ham United" or computer_team=="Aston Villa":
-                computer_team_score=random.randint(0,4)
-            if your_team=="Sheffield United" or your_team=="Leeds United" or your_team=="Southampton" or your_team=="Luton Town" or your_team=="Watford":
-                your_team_socre=random.randint(0,3)
-            if computer_team=="Sheffield United" or computer_team=="Leeds United" or computer_team=="Southampton" or computer_team=="Luton Town" or computer_team=="Watford":
-                computer_team_score=random.randint(0,3)
-            else:
-                your_team_score=random.randint(0,5)
-                computer_team_score=random.randint(0,3)
+            computer_team_score=0
+            # Define team categories
+            top_teams = ["Arsenal", "Manchester City", "Manchester United", "Chelsea", "Liverpool", "Tottenham Hotspur"]
+            mid_teams = ["Brighton & Hove Albion", "West Ham United", "Aston Villa", "Nottingham Forest", "Newcastle United"]
+            bad_teams = ["Burnley", "Leeds United", "Sunderland", "Wolverhampton Wanderers", "Everton", "Watford", "Sheffield United"]
+
+            # Random performance modifier per match (-1, 0, or +1)
+            def get_form_factor():
+                return random.choice([-1, 0, 1])
+
+            # Scoring model with variance
+            def get_team_score(team):
+                form = get_form_factor()
+
+                if team in top_teams:
+                    base = random.choices([1, 2, 3, 4], weights=[10, 30, 35, 25])[0]
+                elif team in mid_teams:
+                    base = random.choices([0, 1, 2, 3], weights=[20, 30, 30, 20])[0]
+                elif team in bad_teams:
+                    base = random.choices([0, 1, 2], weights=[50, 35, 15])[0]
+                else:
+                    base = random.randint(0, 3)
+
+                # Ensure score is not negative
+                return max(0, base + form)
+
+            # Apply score logic
+            your_team_score = get_team_score(your_team)
+            computer_team_score = get_team_score(computer_team)
               
             if your_team_score > computer_team_score:
                 print(f"Congratulations! Your team won the game {your_team_score}-{computer_team_score}.")
@@ -639,7 +690,7 @@ while True:
             print(f"Your record is %s and you have {points} points" % record)
             y='y'
             if y=='Y' or y=='y' or y=='yes':
-              time.sleep(1)
+              time.sleep(simmode)
             numwin=int(numwin)
             numloss=int(numloss)
             numtie=int(numtie)
@@ -652,7 +703,7 @@ while True:
                 print(" ")
                 year=2024+season
                 print(f"Date: January 1st, {year}")
-                print("It is the january transfer window")    
+                print("It is the January transfer window")    
                 print(" ")
                 print("You have offers from:")
                 tot=random.randint(1,2)
@@ -697,9 +748,9 @@ while True:
                     oldloss=numloss
                     oldtie=numtie
                     while True:
+                        print(" ")
                         print("Which team do you want to move to?")
-                        your_team=input()
-                        your_team=your_team.title()
+                        your_team = autocorrect_team_input(input())
                         if your_team==loanteam:
                             loan=1
                             career.append(f"> {your_team}")
@@ -727,7 +778,7 @@ while True:
                             continue
                     selcted_team_index=teams.index(your_team)
                     best=['Arsenal','Chelsea','Liverpool','Manchester United','Manchester City','Tottenham Hotspur']
-                    worst=["Sheffield United","Leeds United","Southampton","Luton Town","Watford","Ipswich Town"]
+                    worst=["Sheffield United","Leeds United","Southampton","Luton Town","Watford","Ipswich Town","Everton","Sunderland","Burnley","Leicester City"]
                     rest= [ 'Aston Villa','Bournemouth', 'Brentford', 'Brighton & Hove Albion',
              'Crystal Palace', 'Everton','Fulham','Leicester City',
              'Newcastle United','Nottingham Forest', 'West Ham United', 'Wolverhampton Wanderers']
@@ -766,6 +817,7 @@ while True:
                 
                 time.sleep(1)
                 half=[]
+                continue
                 
 
                     
@@ -816,77 +868,79 @@ while True:
               uecl_winner=random.choice(uecl)
               fa_winner=random.choice(fa)
               carabao_winner=random.choice(carabao)
+              time.sleep(2)
               print(" ")
               print("Final Standings:")
               print("-----------------")
 
               records = {}
+              used_points = set()  # To track and avoid duplicate point totals
 
               for team in teams:
-                    best=['Arsenal','Chelsea','Liverpool','Manchester United','Manchester City','Tottenham Hotspur']
-                    worst=["Sheffield United","Leeds United","Southampton","Luton Town","Watford","Ipswich Town"]
-                    rest= [ 'Aston Villa','Bournemouth', 'Brentford', 'Brighton & Hove Albion',
-             'Crystal Palace', 'Everton','Fulham','Leicester City',
-             'Newcastle United','Nottingham Forest', 'West Ham United', 'Wolverhampton Wanderers']
-
-                    c=count-1
-                    if team in best or team=="Arsenal" or team=="Manchester City" or team=="Manchester United" or team=="Chelsea" or team=="Liverpool" or team=="Tottenham Hotspur":
-                         wins = random.randrange(22, 28)
-                         x=37-wins
-                         losses = random.randrange(2,  x)
-                         draws = 38- wins - losses
-                         if old==team:
-                             wins = random.randrange(9, 13)
-                             x=15-wins
-                             losses = random.randrange(1,  x)
-                             draws = 19- wins - losses
-                             wins=wins+oldwin
-                             losses=losses+oldloss
-                             draws=draws+oldtie
-                             
-
+                if team==your_team:
+                    points=numwin*3+numtie
+                    used_points.add(points)
+                    wins=numwin
+                    draws=numtie
+                    losses=numloss
                     
-                    elif team in worst or team=="Sheffield United" or team=="Leeds United" or team=="Southampton" or team=="Luton Town" or team=="Watford":
-                         wins = random.randrange(3, 6)
-                         x=37-wins
-                         losses = random.randrange(28,  x)
-                         draws = 38- wins - losses
-                         if old==team:
-                             wins = random.randrange(1, 5)
-                             x=20-wins
-                             losses = random.randrange(14, x)
-                             draws = 19- wins - losses
-                             wins=wins+oldwin
-                             losses=losses+oldloss
-                             draws=draws+oldtie
-                    elif team in rest:
-                        wins = random.randrange(8, 19)
-                        x=31-wins
-                        losses = random.randrange(8,  x)
-                        draws = 38- wins - losses
-                        if old==team:
-                             wins = random.randrange(3, 9)
-                             x=17-wins
-                             losses = random.randrange(7,  x)
-                             draws = 19- wins - losses
-                             wins=wins+oldwin
-                             losses=losses+oldloss
-                             draws=draws+oldtie
-                    
+                else:    
+                    best = ["Arsenal", "Chelsea", "Liverpool", "Manchester United", "Manchester City", "Tottenham Hotspur"]
+                    worst = ["Sheffield United", "Leeds United", "Southampton", "Luton Town", "Watford", "Burnley"]
+                    rest = [ 'Aston Villa', 'Bournemouth', 'Brentford', 'Brighton & Hove Albion', 'Crystal Palace',
+                             'Everton', 'Fulham', 'Leicester City', 'Newcastle United', 'Nottingham Forest',
+                             'West Ham United', 'Wolverhampton Wanderers' ]
 
-                    
-                        
-                    point=3*wins+draws
-                    r=random.randrange(1,30)
+                    # Add variance to break up the Big 6 dominance
+                    surprise_factor = random.randint(-4, 3)
 
+                    if team in best:
+                        base_wins = random.randint(17, 24) + surprise_factor
+                    elif team in worst:
+                        base_wins = random.randint(3, 8) + surprise_factor
+                    else:
+                        base_wins = random.randint(8, 15) + surprise_factor
 
-                    records[team] = (wins, draws, losses, point,r)
+                    # Clamp win range safely
+                    wins = max(0, min(base_wins, 28))
+
+                    draws = random.randint(5, 10)
+                    if wins + draws > 38:
+                        draws = 38 - wins
+                    losses = 38 - wins - draws
+
+                    # Add user's contribution if transferred mid-season
+                    if old == team:
+                        wins += oldwin
+                        draws += oldtie
+                        losses += oldloss
+                        total_games = wins + draws + losses
+                        if total_games > 38:
+                            overflow = total_games - 38
+                            if draws >= overflow:
+                                draws -= overflow
+                            elif wins >= overflow:
+                                wins -= overflow
+                            else:
+                                losses -= overflow
+
+                    points = 3 * wins + draws
+
+                    # Enforce a cap and prevent duplicate points
+                    points = max(18, min(points, 95))
+                    while points in used_points:
+                        points += 1
+                        if points > 95:
+                            points = 18
+                    used_points.add(points)
+
+                    r = random.randint(0, 25)  # Goal diff tiebreaker placeholder
+
+                records[team] = (wins, draws, losses, points, r)
+
             
-              ypoints=numwin*3+numtie
-              r=random.randrange(1,30)
-             
+            
 
-              records[your_team]=(numwin,numtie,numloss, ypoints,r)
              
 
               sorted_teams = sorted(records, key=lambda x: (records[x][3],records[x][4]), reverse=True)
@@ -931,7 +985,7 @@ while True:
                         relstadiums.remove(relstadiums[0])
               print(" ")
               time.sleep(2)
-              year=2023+season
+              year=2024+season
               if your_team==epl_winner:
                   trophies.append(f"{year} Premier League")
                   print("Congratulations, you have won the Premier League!")             
@@ -1006,5 +1060,3 @@ while True:
             
         
     print(" ")
-   
-            
